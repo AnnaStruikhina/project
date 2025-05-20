@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  my_game:
+    build: .
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - ./app:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    network_mode: host  # Для доступа к X11 (можно и через volume)
